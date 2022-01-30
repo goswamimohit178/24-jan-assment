@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+</head>
+<style>
+    td{
+    border:1px solid red;
+    background-color: aqua;
+}
+</style>
+<script>
+    var URL = "https://api2.binance.com/api/v3/ticker/24hr";
+var table = document.getElementById("table");
+var orderred_list = document.getElementById("ul");
+fetch(URL)
+.then((res) => res.json())
+.then((data) => {
+   td1.innerText = data[0].firstId;
+   td2.innerText = data[0].highPrice;
+   td3.innerText = data[0].lastId;
+   td4.innerText = data[0].lastQty; 
+document.write(data); 
+})
+.catch((error) => (document.write("You mistyped url kindly type it corretly")));
+var tr = document.createElement("tr");
+var tr1 = document.createElement("tr");
+var tr2 = document.createElement("tr");
+var tr3 = document.createElement("tr");
+var td1 = document.createElement("td");
+var td2 = document.createElement("td");
+var td3 = document.createElement("td");
+var td4 = document.createElement("td");  
+tr.appendChild(td1);
+tr1.appendChild(td2);
+tr2.appendChild(td3);
+tr3.appendChild(td4);
+table.appendChild(tr); 
+table.appendChild(tr1); 
+table.appendChild(tr2); 
+table.appendChild(tr3);
+
+</script>
+
+<body>
+   
+    <h2>The data are:-</h2>
+    <table id="table"></table>
+    <script src="script.js"></script>
+    
+</body>
+</html>
